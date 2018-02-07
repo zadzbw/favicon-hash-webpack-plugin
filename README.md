@@ -21,7 +21,7 @@ npm install favicon-hash-webpack-plugin --save-dev
 or you can use yarn:
 
 ```bash
-yarn install favicon-hash-webpack-plugin -D
+yarn add favicon-hash-webpack-plugin -D
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ plugins: [
   new HtmlWebpackPlugin({
     ...
   	favicon: 'path-to-favicon/favicon.ico', // favicon path
-  	...
+	...
   }),
   new FaviconHashPlugin({}),
 ],
