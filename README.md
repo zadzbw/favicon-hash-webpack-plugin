@@ -38,9 +38,7 @@ finally, set favicon in `html-webpack-plugin` and add the plugin in `plugins` op
 ...
 plugins: [
   new HtmlWebpackPlugin({
-    ...
   	favicon: 'path-to-favicon/favicon.ico', // favicon path
-	...
   }),
   new FaviconHashPlugin({}),
 ],
