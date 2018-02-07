@@ -18,7 +18,7 @@ class FaviconHashPlugin {
   }
 
   apply(compiler) {
-    compiler.plugin('compilation', compilation => {
+    compiler.plugin('compilation', (compilation) => {
       compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, cb) => {
         const { plugin } = htmlPluginData; // HtmlWebpackPlugin instance
         const faviconPath = path.resolve(compilation.compiler.context, plugin.options.favicon); // logical path
@@ -35,17 +35,17 @@ class FaviconHashPlugin {
           removeOriginalFavicon(compilation, faviconPath);
           compilation.fileDependencies.push(faviconName); // add new favicon
           compilation.assets[faviconName] = {
-            source: function () {
+            source() {
               return source;
             },
-            size: function () {
+            size() {
               return stat.size;
-            }
+            },
           };
           htmlPluginData.assets.favicon = publicPath + faviconName;
           cb(null, htmlPluginData);
         } catch (err) {
-          throw new Error('FaviconHashPlugin: could not load file ' + faviconPath)
+          throw new Error(`FaviconHashPlugin: could not load file ${faviconPath}`);
         }
       });
     });

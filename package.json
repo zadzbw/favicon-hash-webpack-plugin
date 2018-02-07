@@ -4,7 +4,9 @@
   "description": "an extension to add favicon hash for the html-webpack-plugin",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -f codeframe index.js",
+    "lint-fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,9 @@
     "blueimp-md5": "^2.10.0"
   },
   "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.10.0"
   }
