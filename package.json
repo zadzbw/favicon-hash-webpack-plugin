@@ -8,6 +8,9 @@
     "lint": "eslint -f codeframe index.js test/plugin.spec.js",
     "lint-fix": "npm run lint -- --fix"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zadzbw/favicon-hash-webpack-plugin.git"
