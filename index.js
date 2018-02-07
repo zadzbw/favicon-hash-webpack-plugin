@@ -20,8 +20,11 @@ class FaviconHashPlugin {
   apply(compiler) {
     compiler.plugin('compilation', (compilation) => {
       compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, cb) => {
-        const { plugin } = htmlPluginData; // HtmlWebpackPlugin instance
-        const faviconPath = path.resolve(compilation.compiler.context, plugin.options.favicon); // logical path
+        const { plugin: { options: { favicon } } } = htmlPluginData; // HtmlWebpackPlugin instance config
+        if (Object.prototype.toString.call(favicon) !== '[object String]') {
+          throw new Error('FaviconHashPlugin: html-webpack-plugin options favicon key should be a string');
+        }
+        const faviconPath = path.resolve(compilation.compiler.context, favicon); // logical path
         const ext = path.extname(faviconPath);
         let publicPath = compilation.mainTemplate.getPublicPath({ hash: compilation.hash }) || '';
         if (publicPath && publicPath.substr(-1) !== '/') {
