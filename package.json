@@ -1,0 +1,26 @@
+{
+  "name": "favicon-hash-webpack-plugin",
+  "version": "1.0.0",
+  "description": "an extension to add favicon hash for the html-webpack-plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zadzbw/favicon-hash-webpack-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html-webpack-plugin",
+    "favicon",
+    "hash"
+  ],
+  "author": "zadzbw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zadzbw/favicon-hash-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/zadzbw/favicon-hash-webpack-plugin#readme"
+}
