@@ -2,27 +2,28 @@ const path = require('path');
 const fs = require('fs');
 const md5 = require('blueimp-md5');
 
+// in webpack v4, compilation.fileDependencies is a instance of SortableSet that extends Set
+
 const removeOriginalFavicon = (compilation, faviconPath) => {
   const basename = path.basename(faviconPath); // original faviconName
   // remove
-  compilation.fileDependencies = compilation.fileDependencies.filter(name => name !== basename);
   delete compilation.assets[basename];
 };
 
 // waiting for add other options
 const defaultOptions = {};
 
-class FaviconHashPlugin {
+class FaviconHashWebpackPlugin {
   constructor(options = {}) {
     this.options = Object.assign({}, defaultOptions, options);
   }
 
   apply(compiler) {
-    compiler.plugin('compilation', (compilation) => {
-      compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, cb) => {
+    compiler.hooks.compilation.tap(this.constructor.name, (compilation) => {
+      compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync(this.constructor.name, (htmlPluginData, cb) => {
         const { plugin: { options: { favicon } } } = htmlPluginData; // HtmlWebpackPlugin instance config
         if (Object.prototype.toString.call(favicon) !== '[object String]') {
-          throw new Error('FaviconHashPlugin: html-webpack-plugin options favicon key should be a string');
+          throw new Error(`${this.constructor.name}: html-webpack-plugin options favicon key should be a string`);
         }
         const faviconPath = path.resolve(compilation.compiler.context, favicon); // logical path
         const ext = path.extname(faviconPath);
@@ -36,7 +37,6 @@ class FaviconHashPlugin {
           const hash = md5(source, 'utf-8');
           const faviconName = `${path.basename(faviconPath, ext)}.${hash}${ext}`;
           removeOriginalFavicon(compilation, faviconPath);
-          compilation.fileDependencies.push(faviconName); // add new favicon
           compilation.assets[faviconName] = {
             source() {
               return source;
@@ -55,4 +55,4 @@ class FaviconHashPlugin {
   }
 }
 
-module.exports = FaviconHashPlugin;
+module.exports = FaviconHashWebpackPlugin;
