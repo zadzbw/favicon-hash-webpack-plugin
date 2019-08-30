@@ -1,5 +1,9 @@
 # favicon-hash-webpack-plugin
 
+[![NPM version][npm-image]][npm-url]
+[![Node version][node-version-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+
 This is an extension plugin for [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) - it can add hash to favicon file, just like `favicon.[hash].ico`, the hash algorithm is md5 now, and use [blueimp-md5](https://github.com/blueimp/JavaScript-MD5) to calculate hash.
 
 ## Installation
@@ -58,3 +62,9 @@ This plugin only has the default options now.
 ## License
 
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
+
+[npm-image]: https://badgen.net/npm/v/favicon-hash-webpack-plugin
+[node-version-image]: https://badgen.net/npm/node/favicon-hash-webpack-plugin
+[npm-url]: https://www.npmjs.com/package/favicon-hash-webpack-plugin
+[travis-image]: https://travis-ci.org/zadzbw/favicon-hash-webpack-plugin.svg?branch=master
+[travis-url]: https://travis-ci.org/zadzbw/favicon-hash-webpack-plugin
