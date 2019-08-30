@@ -6,9 +6,9 @@ This is an extension plugin for [html-webpack-plugin](https://github.com/ampedan
 
 ### Notice
 
-> * it requires node **v6** or higher
-> * it requires [webpack](https://webpack.js.org/) **v3** 
-> * it requires that you're using [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) in your project
+> * it requires node **v8** or higher
+> * it requires [webpack](https://webpack.js.org/) **>=v4.0.0** and [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) **>=3.0.0**
+> * if you want to use this plugin in webpack v3, please check [v1 branch](https://github.com/zadzbw/favicon-hash-webpack-plugin/tree/v1)
 
 ### Install
 

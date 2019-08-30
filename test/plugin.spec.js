@@ -2,7 +2,7 @@ const path = require('path');
 const MemoryFileSystem = require('memory-fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PreloadPlugin = require('../index');
+const FaviconHashWebpackPlugin = require('../index');
 
 const OUTPUT_DIR = path.join(__dirname, 'dist');
 const chai = require('chai');
@@ -24,7 +24,7 @@ describe('favicon-hash-webpack-plugin test', () => {
         new HtmlWebpackPlugin({
           favicon: 'test/favicon.ico',
         }),
-        new PreloadPlugin(),
+        new FaviconHashWebpackPlugin(),
       ],
     }, (err, stats) => {
       expect(stats.hasErrors()).to.equal(false);
@@ -51,7 +51,7 @@ describe('favicon-hash-webpack-plugin test', () => {
         new HtmlWebpackPlugin({
           favicon: 'test/favicon.ico',
         }),
-        new PreloadPlugin(),
+        new FaviconHashWebpackPlugin(),
       ],
     }, (err, stats) => {
       expect(stats.hasErrors()).to.equal(false);
@@ -77,7 +77,7 @@ describe('favicon-hash-webpack-plugin test', () => {
         new HtmlWebpackPlugin({
           // favicon: 'test/favicon.ico',
         }),
-        new PreloadPlugin(),
+        new FaviconHashWebpackPlugin(),
       ],
     }, (err, stats) => {
       expect(stats.hasErrors()).to.equal(true);
