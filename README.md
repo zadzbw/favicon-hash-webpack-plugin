@@ -15,13 +15,13 @@ This is an extension plugin for [html-webpack-plugin](https://github.com/ampedan
 You can install this plugin with npm:
 
 ```bash
-npm install favicon-hash-webpack-plugin --save-dev
+npm install favicon-hash-webpack-plugin@1 --save-dev
 ```
 
 or you can use yarn:
 
 ```bash
-yarn add favicon-hash-webpack-plugin -D
+yarn add favicon-hash-webpack-plugin@1 -D
 ```
 
 ## Usage
