@@ -7,8 +7,8 @@ This is an extension plugin for [html-webpack-plugin](https://github.com/ampedan
 ### Notice
 
 > * it requires node **v6** or higher
-> * it requires [webpack](https://webpack.js.org/) **v3** 
-> * it requires that you're using [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) in your project
+> * it supports [webpack](https://webpack.js.org/) **v3** 
+> * it requires that you're using [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) **v2** in your project
 
 ### Install
 
